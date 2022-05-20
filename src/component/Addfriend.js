@@ -1,18 +1,25 @@
+import axios from 'axios'
 import React, { useState } from 'react'
+import Header from './Header'
 
 const Addfriend = () => {
   var [id,setId]=useState("")
   var [name,setName]=useState("")
-  var [fname,setFname]=useState("")
-  var [fnn,setFnn]=useState("")
-  var [des,setDes]=useState("")
+  var [friendName,setFname]=useState("")
+  var [friendNickName,setFnn]=useState("")
+  var [DescribeYourFriend,setDes]=useState("")
 
   const subData =() => { 
-    const data={"id":id,"name":name,"fname":fname,"fnn":fnn,"des":des}
+    const data={"id":id,"name":name,"friendName":friendName,"friendNickName":friendNickName,"DescribeYourFriend":DescribeYourFriend}
     console.log(data)
+  axios.post("https://dummyapifriends.herokuapp.com/adddata",data).then((response)=> {
+    console.log(data)
+  })  
   }
+
   return (
     <div>
+      <Header/>
       <div className="container">
         <div className="row">                                                                              
             <div className="col col-12 col-sm-12 col-md-2 col-lg-12 col-xl-12 col-xxl-12">
