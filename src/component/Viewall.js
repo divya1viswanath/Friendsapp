@@ -6,7 +6,7 @@ const Viewall = () => {
     var [viewlist,setViewlist]=useState([])
     var [loadstatus,setLoadstatus]=useState(true)
 
-    axios.get("").then((response) => {
+    axios.get("https://dummyapifriends.herokuapp.com/view").then((response) => {
         console.log(response.data)
         setViewlist(response.data)
         setLoadstatus(false)
@@ -26,22 +26,20 @@ const Viewall = () => {
   </div>
 </div>: <table class="table table-primary table-striped">
                     <thead>
-                        <tr>
-                        <th scope="col">ID</th>                                                     
+                        <tr>                                             
                         <th scope="col">NAME</th>                                                     
                         <th scope="col">FRIEND NAME</th>
                         <th scope="col">FRIEND NICK NAME</th>
-                        <th>DESCIPTION</th>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+                        <th>DESCRIPTION</th>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
                         </tr>
                     </thead>
                     <tbody>
                         {viewlist.map((value,key)=>{
                          return <tr>
-                          <td>{value.setId}</td>
-                          <td>{value.setName}</td>
-                          <td>{value.setFname}</td>
-                          <td>{value.setFnn}</td>
-                          <td>{value.setDes}</td>
+                          <td>{value.name}</td>
+                          <td>{value.friendName}</td>
+                          <td>{value.friendNickName}</td>
+                          <td>{value.DescribeYourFriend}</td>
                         </tr>
                         })}
                         
